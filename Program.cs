@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics.Metrics;
+using System.Reflection.Metadata;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Session6_Assignment
@@ -85,11 +86,19 @@ namespace Session6_Assignment
 
             #region Q6
             //Create a function named MinMaxArray, to return the minimum and maximum values stored in an array, using reference parameters
-            int[] numbers = { 11, 22, 3, 44, 5, 6, 7, 8 };
-            int max = 0; int min =0;
-            MinMaxArray(numbers, ref max, ref min);
-            Console.WriteLine("Maximum = " + max + " & Min = " + min);
-           
+            //int[] numbers = { 11, 22, 3, 44, 5, 6, 7, 8 };
+            //int max = 0; int min =0;
+            //MinMaxArray(numbers, ref max, ref min);
+            //Console.WriteLine("Maximum = " + max + " & Min = " + min);
+
+            #endregion
+
+            #region Q7
+            //Create function to calculate the factorial of the number specified as parameter
+            Console.WriteLine("Enter Num To Get its Factorial");
+            bool isnum = int.TryParse(Console.ReadLine(), out int num);
+            if (isnum) Factorial(num);
+            Console.WriteLine("Factorial is " + Factorial(num));
             #endregion
         }
         public static void increaseby1(ref int a, ref int b)
@@ -134,5 +143,15 @@ namespace Session6_Assignment
             max = objects.Max(); min = objects.Min();
         }
       
+        static int Factorial(int x)
+        {
+           if (x<=0) return 0;
+            int assistant = 1;
+            for (int i = 1; i <=x; i++)
+            {
+                assistant *= i;
+            }
+            return assistant;
+        }
     }
 }
