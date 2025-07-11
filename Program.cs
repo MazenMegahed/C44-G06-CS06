@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics.Metrics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Session6_Assignment
 {
@@ -50,22 +51,36 @@ namespace Session6_Assignment
 
             #region Q4
             //Write a program in C# Sharp to create a function to calculate the sum of theindividual digits of a given number.Output should be like
-          
-                Console.WriteLine("Enter multi digits num");
-              bool isnum= int.TryParse(Console.ReadLine(),out int num);
-            if (isnum)
-            {
-                string numasstring = num.ToString();
-                char[] chars = numasstring.ToCharArray();
-                int summation = 0;
-                foreach (char c in chars)
-                {
-                    summation += c-'0';
-                }
-                Console.WriteLine("Sum = "+summation);
+
+            //    Console.WriteLine("Enter multi digits num");
+            //  bool isnum= int.TryParse(Console.ReadLine(),out int num);
+            //if (isnum)
+            //{
+            //    string numasstring = num.ToString();
+            //    char[] chars = numasstring.ToCharArray();
+            //    int summation = 0;
+            //    foreach (char c in chars)
+            //    {
+            //        summation += c-'0';
+            //    }
+            //    Console.WriteLine("Sum = "+summation);
+            //}
+
+
+            #endregion
+
+            #region Q5
+            //Create a function named "IsPrime", which receives an integer number and retuns true if it is prime, or false if it is not:
+            Console.Write("check prime of num : ");
+            bool isnum = int.TryParse(Console.ReadLine(), out int num);
+            bool result= false;
+            if (isnum) { 
+                result = checkprime(num);
+                if (result) Console.WriteLine("it is prime ");
+                else Console.WriteLine("it is not prime");
             }
-     
-        
+           
+
             #endregion
         }
         public static void increaseby1(ref int a, ref int b)
@@ -91,5 +106,20 @@ namespace Session6_Assignment
           return (summation, substraction);
         }
 
+        static bool checkprime(int s)
+        {
+            if (s <= 1)
+                return false;
+
+            // Only check up to sqrt(number)
+            for (int i = 2; i <= Math.Sqrt(s); i++)
+            {
+                if (s % i == 0)
+                    return false;
+            }
+
+            return true;
+        }
+      
     }
 }
