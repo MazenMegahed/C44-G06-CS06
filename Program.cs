@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Buffers.Text;
+using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Reflection.Metadata;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -95,10 +96,29 @@ namespace Session6_Assignment
 
             #region Q7
             //Create function to calculate the factorial of the number specified as parameter
-            Console.WriteLine("Enter Num To Get its Factorial");
+            //Console.WriteLine("Enter Num To Get its Factorial");
+            //bool isnum = int.TryParse(Console.ReadLine(), out int num);
+            //if (isnum) Factorial(num);
+            //Console.WriteLine("Factorial is " + Factorial(num));
+            #endregion
+
+            #region Q8
+            //Create a function named "ChangeChar" to modify a letter in a certain position(0 based) of a string, replacing it with a different letter
+            Console.WriteLine("enter a text : ");
+            string main = Console.ReadLine();
+            Console.WriteLine("state position of letter to change:");
             bool isnum = int.TryParse(Console.ReadLine(), out int num);
-            if (isnum) Factorial(num);
-            Console.WriteLine("Factorial is " + Factorial(num));
+            if (isnum) {
+                Console.WriteLine("new letter : ");
+                bool ischar = char.TryParse(Console.ReadLine(), out char neww);
+                int position = num - 1;
+                if (ischar)
+               
+                ChangeChar(main, position, neww);
+                Console.WriteLine("new updated text : " + ChangeChar(main, position, neww));
+            }
+           
+
             #endregion
         }
         public static void increaseby1(ref int a, ref int b)
@@ -152,6 +172,16 @@ namespace Session6_Assignment
                 assistant *= i;
             }
             return assistant;
+        }
+
+        static string ChangeChar(string text,int index,char nl)
+        {
+            string updated="";
+            char[] chars = text.ToCharArray();
+            chars[index] = nl;
+            updated =new string(chars);
+
+            return updated;
         }
     }
 }
