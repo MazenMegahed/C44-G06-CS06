@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics.Metrics;
 
 namespace Session6_Assignment
 {
@@ -32,19 +33,39 @@ namespace Session6_Assignment
             #region Q3
             //Write a c# Function that accept 4 parameters from user and
             //return result of summation and subtracting of two numbers
-            Console.WriteLine("Enter a num 1");
-            int.TryParse(Console.ReadLine(), out int num1);
-            Console.WriteLine("Enter a num 2");
-            int.TryParse(Console.ReadLine(), out int num2);
-            Console.WriteLine("Enter a num 3");
-            int.TryParse(Console.ReadLine(), out int num3);
-            Console.WriteLine("Enter a num 4");
-            int.TryParse(Console.ReadLine(), out int num4);
+            //Console.WriteLine("Enter a num 1");
+            //int.TryParse(Console.ReadLine(), out int num1);
+            //Console.WriteLine("Enter a num 2");
+            //int.TryParse(Console.ReadLine(), out int num2);
+            //Console.WriteLine("Enter a num 3");
+            //int.TryParse(Console.ReadLine(), out int num3);
+            //Console.WriteLine("Enter a num 4");
+            //int.TryParse(Console.ReadLine(), out int num4);
 
-            int sum =0, substraction=0;
-            if (num1 != null && num2!= null) (sum,substraction)=SummationandSubstractionFirst2(num1, num2, num3, num4); 
-         
-            Console.WriteLine($"Summation = {sum} , Substraction = {substraction}");
+            //int sum =0, substraction=0;
+            //if (num1 != null && num2!= null) (sum,substraction)=SummationandSubstractionFirst2(num1, num2, num3, num4); 
+
+            //Console.WriteLine($"Summation = {sum} , Substraction = {substraction}");
+            #endregion
+
+            #region Q4
+            //Write a program in C# Sharp to create a function to calculate the sum of theindividual digits of a given number.Output should be like
+          
+                Console.WriteLine("Enter multi digits num");
+              bool isnum= int.TryParse(Console.ReadLine(),out int num);
+            if (isnum)
+            {
+                string numasstring = num.ToString();
+                char[] chars = numasstring.ToCharArray();
+                int summation = 0;
+                foreach (char c in chars)
+                {
+                    summation += c-'0';
+                }
+                Console.WriteLine("Sum = "+summation);
+            }
+     
+        
             #endregion
         }
         public static void increaseby1(ref int a, ref int b)
