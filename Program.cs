@@ -20,13 +20,31 @@ namespace Session6_Assignment
             // Explain the difference between passing (Reference type parameters) by value and by reference then write a suitable c example.
             //passing by value : change the object's content but don't affect the reference in heap
             // passing by reference : change the object's content and create new reference in heap
-            int[] Array = { 1, 2, 3, 4, 5 };
-            Console.WriteLine("Main hashcode : "+Array.GetHashCode());
-            changelastelementbyvalue(Array);
-            Console.WriteLine("Hashcode after change last by value : " + Array.GetHashCode());
-            changelastelementbyreference(ref Array);
-            Console.WriteLine("Hashcode after change last by reference : " + Array.GetHashCode());
+            //int[] Array = { 1, 2, 3, 4, 5 };
+            //Console.WriteLine("Main hashcode : "+Array.GetHashCode());
+            //changelastelementbyvalue(Array);
+            //Console.WriteLine("Hashcode after change last by value : " + Array.GetHashCode());
+            //changelastelementbyreference(ref Array);
+            //Console.WriteLine("Hashcode after change last by reference : " + Array.GetHashCode());
 
+            #endregion
+
+            #region Q3
+            //Write a c# Function that accept 4 parameters from user and
+            //return result of summation and subtracting of two numbers
+            Console.WriteLine("Enter a num 1");
+            int.TryParse(Console.ReadLine(), out int num1);
+            Console.WriteLine("Enter a num 2");
+            int.TryParse(Console.ReadLine(), out int num2);
+            Console.WriteLine("Enter a num 3");
+            int.TryParse(Console.ReadLine(), out int num3);
+            Console.WriteLine("Enter a num 4");
+            int.TryParse(Console.ReadLine(), out int num4);
+
+            int sum =0, substraction=0;
+            if (num1 != null && num2!= null) (sum,substraction)=SummationandSubstractionFirst2(num1, num2, num3, num4); 
+         
+            Console.WriteLine($"Summation = {sum} , Substraction = {substraction}");
             #endregion
         }
         public static void increaseby1(ref int a, ref int b)
@@ -42,6 +60,14 @@ namespace Session6_Assignment
         {
             // This actually replaces the array with a new one
             objects = new int[] { 9, 9, 9, 9, 9 };
+        }
+
+        static(int x, int y) SummationandSubstractionFirst2(int a,int b,int c ,int d)
+        {
+            int summation = a + b;
+
+            int substraction =a>b ?a-b :b-a;
+          return (summation, substraction);
         }
 
     }
