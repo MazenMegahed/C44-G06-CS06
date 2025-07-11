@@ -71,16 +71,25 @@ namespace Session6_Assignment
 
             #region Q5
             //Create a function named "IsPrime", which receives an integer number and retuns true if it is prime, or false if it is not:
-            Console.Write("check prime of num : ");
-            bool isnum = int.TryParse(Console.ReadLine(), out int num);
-            bool result= false;
-            if (isnum) { 
-                result = checkprime(num);
-                if (result) Console.WriteLine("it is prime ");
-                else Console.WriteLine("it is not prime");
-            }
-           
+            //Console.Write("check prime of num : ");
+            //bool isnum = int.TryParse(Console.ReadLine(), out int num);
+            //bool result= false;
+            //if (isnum) { 
+            //    result = checkprime(num);
+            //    if (result) Console.WriteLine("it is prime ");
+            //    else Console.WriteLine("it is not prime");
+            //}
 
+
+            #endregion
+
+            #region Q6
+            //Create a function named MinMaxArray, to return the minimum and maximum values stored in an array, using reference parameters
+            int[] numbers = { 11, 22, 3, 44, 5, 6, 7, 8 };
+            int max = 0; int min =0;
+            MinMaxArray(numbers, ref max, ref min);
+            Console.WriteLine("Maximum = " + max + " & Min = " + min);
+           
             #endregion
         }
         public static void increaseby1(ref int a, ref int b)
@@ -119,6 +128,10 @@ namespace Session6_Assignment
             }
 
             return true;
+        }
+
+        static void MinMaxArray(int[] objects, ref int max, ref int min) {
+            max = objects.Max(); min = objects.Min();
         }
       
     }
